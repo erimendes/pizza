@@ -1,0 +1,46 @@
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log opened at 2016-11-08 03:24:16
+hint
+project --topLevelPackage com.springsource.roo.pizzashop
+hint
+jpa setup --provider HIBERNATE --database HYPERSONIC_IN_MEMORY
+hint
+entity jpa --class ~.domain.Topping --testAutomatically 
+hint
+// [failed] field string --fieldName name --notNull --sizeMin 2
+field string --fieldName name --notNull --sizeMin 2
+hint
+entity jpa --class ~.domain.Base --testAutomatically
+hint
+field string --fieldName name --notNull --sizeMin 2
+hint
+entity jpa --class ~.domain.Pizza --testAutomatically
+hint
+field string --fieldName name --notNull --sizeMin 2
+hint
+field number --fieldName price --type java.lang.Float
+field set --fieldName toppings --type ~.domain.Topping
+hint
+// [failed] field set --fieldName toppings --type ~.domain.Topping
+field reference --fieldName base --type ~.domain.Base
+entity jpa --class ~.domain.PizzaOrder --testAutomatically
+field string --fieldName name --notNull --sizeMin 2
+field string --fieldName address --sizeMax 30
+field number --fieldName total --type java.lang.Float
+field date --fieldName deliveryDate --type java.util.Date
+field set --fieldName pizzas --type ~.domain.Pizza
+hint
+// [failed] field set --fieldName pizzas --type ~.domain.Pizza
+perform tests
+perform eclipse
+quit
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log closed at 2016-11-08 03:41:22
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log opened at 2016-11-08 03:49:31
+web mvc setup
+hint
+web mvc all --package ~.web
+quit
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log closed at 2016-11-08 03:50:31
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log opened at 2016-11-09 21:42:44
+security setup
+quit
+// Spring Roo 1.3.2.RELEASE [rev 8387857] log closed at 2016-11-09 21:46:05
